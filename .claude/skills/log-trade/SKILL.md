@@ -28,7 +28,10 @@ auto-commit + push. Positions are derived, never edited directly.
 
 1. Parse input into candidate trade objects (schema in data/trades.json header).
 2. Validate each: qty > 0; price > 0; side in buy|sell; selling more than the
-   currently held qty requires explicit user confirmation; ticker missing from
+   currently held qty cannot be appended (the journal validator hard-errors on
+   oversells) - if the user insists the sale is real, the journal is missing
+   history: seed the missing shares first (seed mode), then log the sale;
+   ticker missing from
    every tier in data/tiers.json -> warn but allow.
 3. Show the preview table and get one confirmation (AskUserQuestion or plain
    chat confirm; skip the question only if the user already gave an unambiguous
