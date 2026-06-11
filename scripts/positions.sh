@@ -8,26 +8,26 @@ TRADES="${1:-data/trades.json}"
 
 jq -r '
   def round2: . * 100 | round / 100;
-  .trades
+  (.trades // error("no .trades array in journal"))
   | sort_by(.date, .id)
-  | group_by(.ticker + "|" + .account)
+  | group_by([.ticker, .account])
   | map(
       reduce .[] as $t (
         { ticker: .[0].ticker, account: .[0].account, currency: .[0].currency,
           qty: 0, avg: 0, realized: 0, stop: null, target: null };
-        if $t.qty <= 0 then error("non-positive qty in \($t.id)")
+        if $t.qty <= 0 then error("non-positive qty in \($t.id // "<no id>")")
         elif $t.side == "buy" then
           .avg = ((.avg * .qty + $t.price * $t.qty) / (.qty + $t.qty))
           | .qty += $t.qty
         elif $t.side == "sell" then
-          .realized += ($t.qty * ($t.price - .avg))
+          (if $t.qty > .qty then error("oversell of \(.ticker)/\(.account) at \($t.id // "<no id>")") else . end)
+          | .realized += ($t.qty * ($t.price - .avg))
           | .qty -= $t.qty
         else error("unknown side: \($t.side)") end
         | .stop   = ($t.stop   // .stop)
         | .target = ($t.target // .target)
       )
     )
-  | map(if .qty < 0 then error("negative position for \(.ticker)/\(.account) - bad journal") else . end)
   | .[]
   | [ .ticker, .account, .currency, .qty, (.avg|round2), (.realized|round2),
       (.stop // "-"), (.target // "-"),
