@@ -1,5 +1,5 @@
 ---
-name: swing-status
+name: tradingsh-swing-status
 description: On-demand swing-position dashboard - unrealized P&L, distance to stop/target, ATR and RSI context, price vs A1/A2 floors, concentration check. Use when the user asks "swing status", "position status", "how are my positions", or "where am I on my swings".
 ---
 

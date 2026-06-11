@@ -1,5 +1,5 @@
 ---
-name: generate-report
+name: tradingsh-generate-report
 description: Generate the Tier-1 market report on demand (same methodology as the 6am cloud routine) and then Display it, Email it, or save it as Markdown into docs/reports/. Use when the user asks to "generate report", "run the report", "market report now", or "tier 1 report".
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: tier-admission
+name: tradingsh-tier-admission
 description: Evaluate candidate STOCKS for admission into Tier 1 or Tier 2 using the equity-research:screen skill, and update data/tiers.json. Admission-only - never re-ranks or removes existing members, and never admits ETFs. Use when the user asks to "evaluate X for tier", "admit X", "should X be tier 1/2", or "screen X for the watchlist".
 ---
 

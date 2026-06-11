@@ -1,11 +1,11 @@
 ---
-name: swing-alerts
-description: Evaluate alert triggers on open swing positions - stop breached, prior 7-day floor touched, target reached, drop > 1 ATR, gap > 3%, fresh news. Prints only what fired; built for /loop 1h during market hours. Use when the user runs swing-alerts directly or via /loop.
+name: tradingsh-swing-alerts
+description: Evaluate alert triggers on open swing positions - stop breached, prior 7-day floor touched, target reached, drop > 1 ATR, gap > 3%, fresh news. Prints only what fired; built for /loop 1h during market hours. Use when the user runs tradingsh-swing-alerts directly or via /loop.
 ---
 
 # Swing Alerts
 
-Designed to run repeatedly (`/loop 1h /swing-alerts` at the desk, market hours).
+Designed to run repeatedly (`/loop 1h /tradingsh-swing-alerts` at the desk, market hours).
 Cheap and quiet: when nothing fired, output exactly one line: `no alerts`.
 
 ## Procedure

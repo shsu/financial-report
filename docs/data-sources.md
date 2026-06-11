@@ -71,7 +71,7 @@ Always send `-H "User-Agent: Mozilla/5.0"` and `--max-time 15`.
 
 `GET https://data.alpaca.markets/v1beta1/news?symbols=AAA,BBB&start=<ISO>&limit=50`
 with the standard Alpaca auth headers. Free on the existing key (Benzinga-sourced).
-Used by swing-alerts for held-name headlines; available to any report as
+Used by tradingsh-swing-alerts for held-name headlines; available to any report as
 first-line news before web search.
 
 ## TradingView (optional cross-check - unofficial, fragile)

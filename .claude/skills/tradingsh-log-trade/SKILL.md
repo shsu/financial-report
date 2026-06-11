@@ -1,5 +1,5 @@
 ---
-name: log-trade
+name: tradingsh-log-trade
 description: Record swing trades into data/trades.json - single trades in plain English ("bought 10 MU at 858.50 in IBKR, stop 820"), bulk import of pasted fills/CSV/broker confirmations, or seeding current holdings. Validates, previews, appends, auto-commits and pushes. Use when the user says "log trade", "bought/sold X", "import trades", or "seed my positions".
 ---
 

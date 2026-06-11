@@ -1,5 +1,5 @@
 {
-  "$schema_note": "Source of truth for tier membership: stocks AND etfs, each with tier1/tier2/cut. Skills read/write this file. Stock admission goes through the tier-admission skill; ETF membership is managed by the fee/overlap criteria in docs/tier-framework.md. When this file changes, the cloud routine prompts must be updated too — ticker universes are baked into the prompt text (see prompts/*.md).",
+  "$schema_note": "Source of truth for tier membership: stocks AND etfs, each with tier1/tier2/cut. Skills read/write this file. Stock admission goes through the tradingsh-tier-admission skill; ETF membership is managed by the fee/overlap criteria in docs/tier-framework.md. When this file changes, the cloud routine prompts must be updated too — ticker universes are baked into the prompt text (see prompts/*.md).",
   "updated": "2026-06-11",
   "stocks": {
     "tier1": [
