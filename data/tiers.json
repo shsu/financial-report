@@ -1,0 +1,48 @@
+{
+  "$schema_note": "Source of truth for stock tier membership. Skills read/write this file. ETF tiers live in docs/current-book-*.md (ETFs are NOT admitted via tier-admission). When this file changes, the cloud routine prompts must be updated too — tier universes are baked into the prompt text (see prompts/*.md).",
+  "updated": "2026-06-11",
+  "tier1": [
+    { "ticker": "NVDA", "rank": 1 },
+    { "ticker": "TSM",  "rank": 2, "note": "held via 0050/FLTW ETFs, not as a brokerage single" },
+    { "ticker": "ASML", "rank": 3 },
+    { "ticker": "GOOG", "rank": 4 },
+    { "ticker": "CDNS", "rank": 5 },
+    { "ticker": "KLAC", "rank": 6 },
+    { "ticker": "AMAT", "rank": 7 },
+    { "ticker": "LRCX", "rank": 8 },
+    { "ticker": "ADI",  "rank": 9 },
+    { "ticker": "IBKR", "rank": 10, "note": "paired with HOOD (tier 2)" },
+    { "ticker": "ETN",  "rank": 11 },
+    { "ticker": "AAPL", "rank": 12 },
+    { "ticker": "AMZN", "rank": 13 },
+    { "ticker": "AVGO", "rank": 14 },
+    { "ticker": "AMD",  "rank": 15 },
+    { "ticker": "MU",   "rank": 16, "note": "long thesis ~$937; entries $854-864 / $750-820; FQ3 earnings ~Jun 24-25 2026 (HBM4 pricing, FY2027 LTAs)" },
+    { "ticker": "CRWD", "rank": 17 },
+    { "ticker": "CRDO", "rank": 18, "junior": true, "note": "half tranches; air gap to $149" },
+    { "ticker": "ALAB", "rank": 19, "junior": true, "note": "half tranches; air gap to $190" },
+    { "ticker": "CIEN", "rank": 20, "probation": true, "note": "buy only on reclaim day, never first touch of A1" },
+    { "ticker": "FIX" }
+  ],
+  "tier2": [
+    { "ticker": "MRVL", "note": "promotion review on 5 closes above pre-crash shelf" },
+    { "ticker": "DOCN" },
+    { "ticker": "AMKR", "note": "packaging duopoly with ASX - keep both" },
+    { "ticker": "ASX",  "note": "packaging duopoly with AMKR - keep both" },
+    { "ticker": "COHR", "note": "won vs LITE" },
+    { "ticker": "DDOG" },
+    { "ticker": "DELL" },
+    { "ticker": "RDDT" },
+    { "ticker": "HOOD", "note": "pair with IBKR; size review when SpaceX IPO date set" },
+    { "ticker": "NOW",  "note": "contrarian SaaS; cut if next print cRPO growth < 20%" },
+    { "ticker": "MP",   "note": "cut on US-China rare-earth deal progress or new insider sales" },
+    { "ticker": "GEV",  "note": "basing structure; VRT cut redirected here + ETN" },
+    { "ticker": "META", "note": "demoted contrarian; restore on 50DMA reclaim or ad-acceleration + flat-capex quarter (~$650 reclaim)" },
+    { "ticker": "MSFT", "note": "demoted contrarian; ~$370 base or capex-discipline print to re-tier; cut on close below 35d base" },
+    { "ticker": "ENTG", "note": "promotion review if <10% off high for 5 sessions" }
+  ],
+  "cut": [
+    "CRM", "NFLX", "UI", "SOFI", "SNOW", "NET", "HPE", "MXL", "LITE",
+    "VRT", "FCX", "2454", "K"
+  ]
+}
