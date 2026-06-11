@@ -1,0 +1,4 @@
+{
+  "$schema_note": "Append-only trade journal - the single source of truth for positions, which are ALWAYS derived via scripts/positions.sh and never stored. Written ONLY by the log-trade skill. Fields per trade: id (date-NNN), date, ticker, side (buy|sell), qty, price, currency, account, setup (A1-buy|DCA|junior-tranche|breakout|trim|exit-stop|exit-target|seed|other), thesis?, stop?, target?.",
+  "trades": []
+}
