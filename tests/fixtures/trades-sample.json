@@ -1,0 +1,8 @@
+{ "trades": [
+  { "id": "2026-06-01-001", "date": "2026-06-01", "ticker": "MU",   "side": "buy",  "qty": 10,  "price": 800,  "currency": "USD", "account": "ibkr-usd", "setup": "seed",  "stop": 750 },
+  { "id": "2026-06-02-001", "date": "2026-06-02", "ticker": "MU",   "side": "buy",  "qty": 10,  "price": 900,  "currency": "USD", "account": "ibkr-usd", "setup": "DCA",   "stop": 820, "target": 1000 },
+  { "id": "2026-06-05-001", "date": "2026-06-05", "ticker": "MU",   "side": "sell", "qty": 10,  "price": 950,  "currency": "USD", "account": "ibkr-usd", "setup": "trim" },
+  { "id": "2026-06-01-002", "date": "2026-06-01", "ticker": "XCHP", "side": "buy",  "qty": 100, "price": 130,  "currency": "CAD", "account": "tfsa-cad", "setup": "seed" },
+  { "id": "2026-06-03-001", "date": "2026-06-03", "ticker": "DRAM", "side": "buy",  "qty": 20,  "price": 55,   "currency": "USD", "account": "ibkr-usd", "setup": "junior-tranche" },
+  { "id": "2026-06-08-001", "date": "2026-06-08", "ticker": "DRAM", "side": "sell", "qty": 20,  "price": 60,   "currency": "USD", "account": "ibkr-usd", "setup": "exit-target" }
+] }
