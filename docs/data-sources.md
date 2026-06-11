@@ -67,6 +67,25 @@ Always send `-H "User-Agent: Mozilla/5.0"` and `--max-time 15`.
   print stale (showed 3.8 vs ~5% spot once) — always cross-check against a web search
   and prefer the search figure if they disagree by > 0.1.
 
+## Alpaca News API
+
+`GET https://data.alpaca.markets/v1beta1/news?symbols=AAA,BBB&start=<ISO>&limit=50`
+with the standard Alpaca auth headers. Free on the existing key (Benzinga-sourced).
+Used by swing-alerts for held-name headlines; available to any report as
+first-line news before web search.
+
+## TradingView (optional cross-check - unofficial, fragile)
+
+There is NO official TradingView API; community TradingView MCPs wrap the
+unofficial scanner endpoint and break without notice. We compute indicators
+ourselves (`scripts/indicators.sh`). If a TA-rating cross-check is ever wanted:
+
+    curl -s 'https://scanner.tradingview.com/america/scan' \
+      -H 'Content-Type: application/json' \
+      -d '{"symbols":{"tickers":["NASDAQ:NVDA"]},"columns":["Recommend.All","RSI","ATR"]}'
+
+Treat as best-effort only; never a primary source. ToS-gray - do not build on it.
+
 ## FX rule of thumb
 
 CAD→USD conversion costs ~1–2% retail. That dwarfs ETF fee differences

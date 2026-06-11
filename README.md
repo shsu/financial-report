@@ -19,6 +19,13 @@ and the prompts for the two scheduled cloud agents that produce daily reports.
 | `data/tiers.json` | **Source of truth** for tier membership — STOCKS: tier1 (ranked, junior/probation flags) / tier2 / cut · ETFs: tier1 (ranked, category/fee/action) / tier2 / cut |
 | `.claude/skills/generate-report/` | Skill: build the Tier-1 report on demand → Display / Email / save to `docs/reports/` |
 | `.claude/skills/tier-admission/` | Skill: gate NEW stocks into Tier 1/2 via `equity-research:screen`; updates `data/tiers.json` |
+| `data/trades.json` | Append-only swing-trade journal — positions always derived, never stored |
+| `scripts/positions.sh` | trades.json → positions (avg-cost, realized P&L, latest stop/target) |
+| `scripts/lib/indicators.jq` + `scripts/indicators.sh` | ATR14/RSI14/SMA/relvol/A1/A2 from Alpaca + Yahoo bars |
+| `tests/` | `run-tests.sh` (offline fixture tests) + live smoke test |
+| `.claude/skills/log-trade/` | Skill: record trades (single / bulk import / seed current holdings) |
+| `.claude/skills/swing-status/` | Skill: on-demand position dashboard (P&L, stops, ATR/RSI, concentration) |
+| `.claude/skills/swing-alerts/` | Skill: trigger scan for `/loop 1h` — prints only what fired |
 
 ## Skills (work when Claude Code runs inside this repo)
 
@@ -29,6 +36,12 @@ and the prompts for the two scheduled cloud agents that produce daily reports.
   `equity-research:screen` methodology against the admission bar in
   `docs/tier-framework.md`, writes admits into `data/tiers.json`, and reminds that the
   cloud routine prompts embed ticker lists and need a `/schedule` update to match.
+- **log-trade / swing-status / swing-alerts** — local-first swing-trading suite
+  (see `docs/superpowers/specs/2026-06-11-swing-trading-local-design.md`).
+  Typical day: `/loop 1h` invoking swing-alerts while at the desk; `swing-status`
+  on demand; every fill logged via log-trade (which auto-commits + pushes).
+  Cloud routines deliberately do NOT read positions (Approach C). Email delivery
+  TBD pending credentials; PushNotification is the interim alert channel.
 
 `data/tiers.json` outranks any ticker list hard-coded in docs or prompts — if they
 disagree, the JSON is current and the prompt needs updating.
