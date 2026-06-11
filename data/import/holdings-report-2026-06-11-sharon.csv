@@ -1,0 +1,12 @@
+Account Name,Account Type,Account Classification,Account Number,Symbol,Exchange,MIC,Name,Security Type,Quantity,Position Direction,Market Price,Market Price Currency,Book Value (CAD),Book Value Currency (CAD),Book Value (Market),Book Value Currency (Market),Market Value,Market Value Currency,Market Unrealized Returns,Market Unrealized Returns Currency
+"TFSA - DI","TFSA","Trade","H319687K2CAD","AAPL","NASDAQ","XNAS","Apple Inc","EQUITY","8","LONG","295.7","USD","1240.21","CAD","923.00604790236622","USD","2365.2","USD","1442.19395209763378","USD"
+"TFSA - DI","TFSA","Trade","H319687K2CAD","AGNT","NASDAQ","XNAS","AGNT, Inc.","EQUITY","10","LONG","4.69","USD","706.55","CAD","549.99844314360443","USD","46.9","USD","-503.09844314360443","USD"
+"TFSA - DI","TFSA","Trade","H319687K2CAD","MSFT","NASDAQ","XNAS","Microsoft Corp.","EQUITY","14","LONG","392.1","USD","7980.30339","CAD","5832.51353866736469","USD","5490.5592","USD","-341.95433866736469","USD"
+"TFSA - DI","TFSA","Trade","H319687K2CAD","NVDA","NASDAQ","XNAS","NVIDIA Corp","EQUITY","80","LONG","205.61","USD","1361.79","CAD","989.55070957803178","USD","16454.4","USD","15464.84929042196822","USD"
+"TFSA - DI","TFSA","Trade","H319687K2CAD","PYPL","NASDAQ","XNAS","PayPal Holdings Inc","EQUITY","4","LONG","41.27","USD","1416.01","CAD","1028.94991171148913","USD","165.08","USD","-863.86991171148913","USD"
+"TFSA - DI","TFSA","Trade","H319687K2CAD","QQC","TSX","XTSE","Invesco NASDAQ 100 Index ETF","EXCHANGE_TRADED_FUND","20","LONG","48.84","CAD","720","CAD","720","CAD","976.8","CAD","256.8","CAD"
+"TFSA - DI","TFSA","Trade","H319687K2CAD","SHOP","TSX","XTSE","Shopify Inc.","EQUITY","40","LONG","154.22","CAD","5211.99","CAD","5211.99","CAD","6168.8","CAD","956.81","CAD"
+"TFSA - DI","TFSA","Trade","H319687K2CAD","TSLA","NASDAQ","XNAS","Tesla Inc","EQUITY","3","LONG","398.9926","USD","456.99","CAD","340.0018302468378","USD","1197.2046","USD","857.2027697531622","USD"
+"TFSA - DI","TFSA","Trade","H319687K2CAD","XCHP","TSX","XTSE","iShares Semiconductor Index ETF - CAD","EXCHANGE_TRADED_FUND","15","LONG","142.25","CAD","1725","CAD","1725","CAD","2133.75","CAD","408.75","CAD"
+
+"As of 2026-06-11 15:18 GMT-07:00"
