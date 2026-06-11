@@ -1,4 +1,26 @@
 {
   "$schema_note": "Append-only trade journal - the single source of truth for positions, which are ALWAYS derived via scripts/positions.sh and never stored. Written ONLY by the tradingsh-log-trade skill. Fields per trade: id (date-NNN), date, ticker, side (buy|sell), qty, price, currency, account, setup (A1-buy|DCA|junior-tranche|breakout|trim|exit-stop|exit-target|seed|other), thesis?, stop?, target?.",
-  "trades": []
+  "trades": [
+    {"id":"2026-06-11-001","date":"2026-06-11","ticker":"CAGE","side":"buy","qty":100,"price":21.50,"currency":"CAD","account":"lira","setup":"seed"},
+    {"id":"2026-06-11-002","date":"2026-06-11","ticker":"CBIL","side":"buy","qty":1500,"price":50.01,"currency":"CAD","account":"lira","setup":"seed"},
+    {"id":"2026-06-11-003","date":"2026-06-11","ticker":"K","side":"buy","qty":20,"price":34.50,"currency":"CAD","account":"lira","setup":"seed"},
+    {"id":"2026-06-11-004","date":"2026-06-11","ticker":"WPM","side":"buy","qty":2,"price":149.00,"currency":"CAD","account":"lira","setup":"seed"},
+    {"id":"2026-06-11-005","date":"2026-06-11","ticker":"XCHP","side":"buy","qty":70,"price":134.86,"currency":"CAD","account":"lira","setup":"seed"},
+    {"id":"2026-06-11-006","date":"2026-06-11","ticker":"AIS","side":"buy","qty":60,"price":75.93,"currency":"USD","account":"rrsp-franklin","setup":"seed"},
+    {"id":"2026-06-11-007","date":"2026-06-11","ticker":"AMZN","side":"buy","qty":64,"price":263.47,"currency":"USD","account":"rrsp-franklin","setup":"seed"},
+    {"id":"2026-06-11-008","date":"2026-06-11","ticker":"AVLC","side":"buy","qty":100,"price":87.00,"currency":"USD","account":"rrsp-franklin","setup":"seed"},
+    {"id":"2026-06-11-009","date":"2026-06-11","ticker":"CALV","side":"buy","qty":1000,"price":20.20,"currency":"CAD","account":"rrsp-franklin","setup":"seed"},
+    {"id":"2026-06-11-010","date":"2026-06-11","ticker":"GOOG","side":"buy","qty":20,"price":336.97,"currency":"USD","account":"rrsp-franklin","setup":"seed"},
+    {"id":"2026-06-11-011","date":"2026-06-11","ticker":"NVDA","side":"buy","qty":82,"price":210.92,"currency":"USD","account":"rrsp-franklin","setup":"seed"},
+    {"id":"2026-06-11-012","date":"2026-06-11","ticker":"POW","side":"buy","qty":40,"price":30.90,"currency":"USD","account":"rrsp-franklin","setup":"seed"},
+    {"id":"2026-06-11-013","date":"2026-06-11","ticker":"SGOV","side":"buy","qty":600,"price":100.65,"currency":"USD","account":"rrsp-franklin","setup":"seed"},
+    {"id":"2026-06-11-014","date":"2026-06-11","ticker":"XCHP","side":"buy","qty":50,"price":115.00,"currency":"CAD","account":"rrsp-franklin","setup":"seed"},
+    {"id":"2026-06-11-015","date":"2026-06-11","ticker":"AAPL","side":"buy","qty":15,"price":120.16,"currency":"USD","account":"rrsp-sharon","setup":"seed"},
+    {"id":"2026-06-11-016","date":"2026-06-11","ticker":"ARKK","side":"buy","qty":15,"price":113.16,"currency":"USD","account":"rrsp-sharon","setup":"seed"},
+    {"id":"2026-06-11-017","date":"2026-06-11","ticker":"META","side":"buy","qty":14,"price":601.37,"currency":"USD","account":"rrsp-sharon","setup":"seed"},
+    {"id":"2026-06-11-018","date":"2026-06-11","ticker":"MU","side":"buy","qty":4,"price":902.50,"currency":"USD","account":"rrsp-sharon","setup":"seed"},
+    {"id":"2026-06-11-019","date":"2026-06-11","ticker":"NVDA","side":"buy","qty":55,"price":76.20,"currency":"USD","account":"rrsp-sharon","setup":"seed"},
+    {"id":"2026-06-11-020","date":"2026-06-11","ticker":"SGOV","side":"buy","qty":500,"price":100.40,"currency":"USD","account":"rrsp-sharon","setup":"seed"},
+    {"id":"2026-06-11-021","date":"2026-06-11","ticker":"XCHP","side":"buy","qty":5,"price":98.20,"currency":"CAD","account":"tfsa","setup":"seed"}
+  ]
 }
