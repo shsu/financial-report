@@ -16,7 +16,7 @@ and the prompts for the two scheduled cloud agents that produce daily reports.
 | `prompts/regenerate-tier1-etfs.md` | Paste-in prompt to rebuild the Tier-1 ETF table in an interactive session |
 | `scripts/fetch-bars-stats.sh` | Paginated Alpaca weekly-bars fetch + per-symbol trend stats |
 | `scripts/check-data-sources.sh` | Health check for every endpoint the routines depend on |
-| `data/tiers.json` | **Source of truth** for stock tier membership (tier1 ranked, tier2, cut list) |
+| `data/tiers.json` | **Source of truth** for tier membership — STOCKS: tier1 (ranked, junior/probation flags) / tier2 / cut · ETFs: tier1 (ranked, category/fee/action) / tier2 / cut |
 | `.claude/skills/generate-report/` | Skill: build the Tier-1 report on demand → Display / Email / save to `docs/reports/` |
 | `.claude/skills/tier-admission/` | Skill: gate NEW stocks into Tier 1/2 via `equity-research:screen`; updates `data/tiers.json` |
 

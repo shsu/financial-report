@@ -7,8 +7,9 @@ description: Evaluate candidate STOCKS for admission into Tier 1 or Tier 2 using
 
 Gate for NEW stocks entering Tier 1/2. Scope is deliberately narrow:
 
-- **Stocks only.** ETF membership is managed separately (`docs/current-book-*.md`,
-  fee/overlap criteria) — refuse ETF candidates and point there.
+- **Stocks only.** ETF membership is recorded in the `etfs` section of
+  `data/tiers.json` but is managed by the fee/overlap criteria in
+  `docs/tier-framework.md`, not by this skill — refuse ETF candidates and point there.
 - **Admission only.** Demotions, cuts, and re-ranking of existing members are driven by
   the daily routine's conditionals (STEP 4 of `prompts/daily-tier1-report.md`), not by
   this skill. If the user asks to demote/remove, do it as a plain edit, not a screen.

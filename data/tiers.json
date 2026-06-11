@@ -1,48 +1,82 @@
 {
-  "$schema_note": "Source of truth for stock tier membership. Skills read/write this file. ETF tiers live in docs/current-book-*.md (ETFs are NOT admitted via tier-admission). When this file changes, the cloud routine prompts must be updated too — tier universes are baked into the prompt text (see prompts/*.md).",
+  "$schema_note": "Source of truth for tier membership: stocks AND etfs, each with tier1/tier2/cut. Skills read/write this file. Stock admission goes through the tier-admission skill; ETF membership is managed by the fee/overlap criteria in docs/tier-framework.md. When this file changes, the cloud routine prompts must be updated too — ticker universes are baked into the prompt text (see prompts/*.md).",
   "updated": "2026-06-11",
-  "tier1": [
-    { "ticker": "NVDA", "rank": 1 },
-    { "ticker": "TSM",  "rank": 2, "note": "held via 0050/FLTW ETFs, not as a brokerage single" },
-    { "ticker": "ASML", "rank": 3 },
-    { "ticker": "GOOG", "rank": 4 },
-    { "ticker": "CDNS", "rank": 5 },
-    { "ticker": "KLAC", "rank": 6 },
-    { "ticker": "AMAT", "rank": 7 },
-    { "ticker": "LRCX", "rank": 8 },
-    { "ticker": "ADI",  "rank": 9 },
-    { "ticker": "IBKR", "rank": 10, "note": "paired with HOOD (tier 2)" },
-    { "ticker": "ETN",  "rank": 11 },
-    { "ticker": "AAPL", "rank": 12 },
-    { "ticker": "AMZN", "rank": 13 },
-    { "ticker": "AVGO", "rank": 14 },
-    { "ticker": "AMD",  "rank": 15 },
-    { "ticker": "MU",   "rank": 16, "note": "long thesis ~$937; entries $854-864 / $750-820; FQ3 earnings ~Jun 24-25 2026 (HBM4 pricing, FY2027 LTAs)" },
-    { "ticker": "CRWD", "rank": 17 },
-    { "ticker": "CRDO", "rank": 18, "junior": true, "note": "half tranches; air gap to $149" },
-    { "ticker": "ALAB", "rank": 19, "junior": true, "note": "half tranches; air gap to $190" },
-    { "ticker": "CIEN", "rank": 20, "probation": true, "note": "buy only on reclaim day, never first touch of A1" },
-    { "ticker": "FIX" }
-  ],
-  "tier2": [
-    { "ticker": "MRVL", "note": "promotion review on 5 closes above pre-crash shelf" },
-    { "ticker": "DOCN" },
-    { "ticker": "AMKR", "note": "packaging duopoly with ASX - keep both" },
-    { "ticker": "ASX",  "note": "packaging duopoly with AMKR - keep both" },
-    { "ticker": "COHR", "note": "won vs LITE" },
-    { "ticker": "DDOG" },
-    { "ticker": "DELL" },
-    { "ticker": "RDDT" },
-    { "ticker": "HOOD", "note": "pair with IBKR; size review when SpaceX IPO date set" },
-    { "ticker": "NOW",  "note": "contrarian SaaS; cut if next print cRPO growth < 20%" },
-    { "ticker": "MP",   "note": "cut on US-China rare-earth deal progress or new insider sales" },
-    { "ticker": "GEV",  "note": "basing structure; VRT cut redirected here + ETN" },
-    { "ticker": "META", "note": "demoted contrarian; restore on 50DMA reclaim or ad-acceleration + flat-capex quarter (~$650 reclaim)" },
-    { "ticker": "MSFT", "note": "demoted contrarian; ~$370 base or capex-discipline print to re-tier; cut on close below 35d base" },
-    { "ticker": "ENTG", "note": "promotion review if <10% off high for 5 sessions" }
-  ],
-  "cut": [
-    "CRM", "NFLX", "UI", "SOFI", "SNOW", "NET", "HPE", "MXL", "LITE",
-    "VRT", "FCX", "2454", "K"
-  ]
+  "stocks": {
+    "tier1": [
+      { "ticker": "NVDA", "rank": 1 },
+      { "ticker": "TSM",  "rank": 2, "note": "held via 0050/FLTW ETFs, not as a brokerage single" },
+      { "ticker": "ASML", "rank": 3 },
+      { "ticker": "GOOG", "rank": 4 },
+      { "ticker": "CDNS", "rank": 5 },
+      { "ticker": "KLAC", "rank": 6 },
+      { "ticker": "AMAT", "rank": 7 },
+      { "ticker": "LRCX", "rank": 8 },
+      { "ticker": "ADI",  "rank": 9 },
+      { "ticker": "IBKR", "rank": 10, "note": "paired with HOOD (tier 2)" },
+      { "ticker": "ETN",  "rank": 11 },
+      { "ticker": "AAPL", "rank": 12 },
+      { "ticker": "AMZN", "rank": 13 },
+      { "ticker": "AVGO", "rank": 14 },
+      { "ticker": "AMD",  "rank": 15 },
+      { "ticker": "MU",   "rank": 16, "note": "long thesis ~$937; entries $854-864 / $750-820; FQ3 earnings ~Jun 24-25 2026 (HBM4 pricing, FY2027 LTAs)" },
+      { "ticker": "CRWD", "rank": 17 },
+      { "ticker": "CRDO", "rank": 18, "junior": true, "note": "half tranches; air gap to $149" },
+      { "ticker": "ALAB", "rank": 19, "junior": true, "note": "half tranches; air gap to $190" },
+      { "ticker": "CIEN", "rank": 20, "probation": true, "note": "buy only on reclaim day, never first touch of A1" },
+      { "ticker": "FIX" }
+    ],
+    "tier2": [
+      { "ticker": "MRVL", "note": "promotion review on 5 closes above pre-crash shelf" },
+      { "ticker": "DOCN" },
+      { "ticker": "AMKR", "note": "packaging duopoly with ASX - keep both" },
+      { "ticker": "ASX",  "note": "packaging duopoly with AMKR - keep both" },
+      { "ticker": "COHR", "note": "won vs LITE" },
+      { "ticker": "DDOG" },
+      { "ticker": "DELL" },
+      { "ticker": "RDDT" },
+      { "ticker": "HOOD", "note": "pair with IBKR; size review when SpaceX IPO date set" },
+      { "ticker": "NOW",  "note": "contrarian SaaS; cut if next print cRPO growth < 20%" },
+      { "ticker": "MP",   "note": "cut on US-China rare-earth deal progress or new insider sales" },
+      { "ticker": "GEV",  "note": "basing structure; VRT cut redirected here + ETN" },
+      { "ticker": "META", "note": "demoted contrarian; restore on 50DMA reclaim or ad-acceleration + flat-capex quarter (~$650 reclaim)" },
+      { "ticker": "MSFT", "note": "demoted contrarian; ~$370 base or capex-discipline print to re-tier; cut on close below 35d base" },
+      { "ticker": "ENTG", "note": "promotion review if <10% off high for 5 sessions" }
+    ],
+    "cut": [
+      "CRM", "NFLX", "UI", "SOFI", "SNOW", "NET", "HPE", "MXL", "LITE",
+      "VRT", "FCX", "2454", "K"
+    ]
+  },
+  "etfs": {
+    "actions_as_of": "2026-06-10",
+    "tier1": [
+      { "ticker": "0050", "rank": 1,  "category": "Taiwan / TSM core",            "exchange": "TWSE",      "currency": "TWD", "fee": 0.07, "action": "DCA",  "note": "fee is AUM-tiered, falling toward 0.05; 4:1 split mid-2025" },
+      { "ticker": "QQQM", "rank": 2,  "category": "US growth beta",               "exchange": "NASDAQ",    "currency": "USD", "fee": 0.15, "action": "HOLD", "note": "no adds - underlying mega-caps owned as singles" },
+      { "ticker": "AVLV", "rank": 3,  "category": "US value (total-return)",      "exchange": "NYSE Arca", "currency": "USD", "fee": 0.15, "action": "BUY",  "note": "yield only 1.08% - not an income fund" },
+      { "ticker": "GARP", "rank": 4,  "category": "US quality-growth",            "exchange": "NYSE Arca", "currency": "USD", "fee": 0.15, "action": "DCA",  "note": "iShares MSCI USA Quality GARP (not Invesco SPGP)" },
+      { "ticker": "SCHD", "rank": 5,  "category": "Income ballast",               "exchange": "NYSE Arca", "currency": "USD", "fee": 0.06, "action": "HOLD", "note": "~3.5% yield; 5% cash competes" },
+      { "ticker": "AVIV", "rank": 6,  "category": "International value",          "exchange": "NYSE Arca", "currency": "USD", "fee": 0.25, "action": "BUY" },
+      { "ticker": "DRAM", "rank": 7,  "category": "Memory / HBM supercycle",      "exchange": "Cboe BZX",  "currency": "USD", "fee": 0.65, "action": "DCA",  "junior": true, "note": "Roundhill, listed 2026-04-02; Samsung 25 + hynix 24 + MU 24, 49% Korea; tiered-support adds only" },
+      { "ticker": "POW",  "rank": 8,  "category": "Electrification / Asian grid", "exchange": "NYSE Arca", "currency": "USD", "fee": 0.75, "action": "DCA",  "junior": true, "note": "VistaShares active; LS Electric, Delta, Powell, Vicor, Quanta; tiered-support adds only" },
+      { "ticker": "AIS",  "rank": 9,  "category": "AI umbrella + private sleeve", "exchange": "NYSE Arca", "currency": "USD", "fee": 0.75, "action": "HOLD", "junior": true, "note": "VistaShares active, incl private SpaceX stake; user-override keep - public book overlaps singles; no adds after +182% yr" },
+      { "ticker": "XCHP", "rank": 10, "category": "CAD semis beta (FX-avoidance)","exchange": "TSX",       "currency": "CAD", "fee": 0.40, "action": "DCA",  "note": "new CAD cash only - exists to avoid ~1-2% CAD->USD conversion" }
+    ],
+    "tier2": [
+      { "ticker": "AVXC", "category": "EM ex-China",            "exchange": "NYSE Arca", "currency": "USD", "fee": 0.33, "note": "hidden Taiwan beta (~25-30%)" },
+      { "ticker": "QQC",  "category": "NASDAQ-100 (CAD wrap)",  "exchange": "TSX",       "currency": "CAD", "fee": 0.20, "note": "all-in wrap of QQQM; CAD-account dup - one NDX slot, currency decides; Alpaca 'QQC' is a DIFFERENT US fund" },
+      { "ticker": "ZGLD", "category": "Gold bullion",           "exchange": "TSX",       "currency": "CAD", "fee": 0.22, "note": "tail hedge; no adds while real yields rise" },
+      { "ticker": "CACE", "category": "Canadian equity (IMI)",  "exchange": "TSX",       "currency": "CAD", "fee": 0.19, "note": "Avantis-CIBC, launched 2026-02-20 - probation" },
+      { "ticker": "AVDV", "category": "Intl small-cap value",   "exchange": "NYSE Arca", "currency": "USD", "fee": 0.36 },
+      { "ticker": "FCCV", "category": "Canadian value",         "exchange": "TSX",       "currency": "CAD", "fee": 0.39, "note": "overlaps CACE - consolidation candidate" },
+      { "ticker": "CAUV", "category": "US small-cap value (CAD)","exchange": "TSX",      "currency": "CAD", "fee": 0.35, "note": "Avantis-CIBC, launched 2026-02-20; small caps vs hiking cycle" },
+      { "ticker": "XEG",  "category": "Canadian energy",        "exchange": "TSX",       "currency": "CAD", "fee": 0.60, "note": "fee-ugly but THE oil-shock hedge - allocation priority above fund quality" },
+      { "ticker": "ICOP", "category": "Copper & metals miners", "exchange": "NYSE Arca", "currency": "USD", "fee": 0.47, "note": "long-term supply story intact; momentum broken" },
+      { "ticker": "AIA",  "category": "Asia 50",                "exchange": "NASDAQ",    "currency": "USD", "fee": 0.50, "note": "TRIM - Asia triple-stacked; keep stub only for China sleeve" },
+      { "ticker": "FLTW", "category": "Taiwan (USD)",           "exchange": "NYSE Arca", "currency": "USD", "fee": 0.19, "note": "0050 dup; becomes the Taiwan tier-1 slot in USD-only accounts" },
+      { "ticker": "AVLC", "category": "US large core",          "exchange": "NYSE Arca", "currency": "USD", "fee": 0.15, "note": "~ QQQM + AVLV blend - first demotion under overlap budget" }
+    ],
+    "cut": [
+      { "ticker": "IGV", "reason": "negative YoY in a +30% tape; seat-based SaaS structurally on the wrong side of AI (2026 SaaSpocalypse)" }
+    ]
+  }
 }
