@@ -1,5 +1,5 @@
 {
-  "$schema_note": "Append-only trade journal - the single source of truth for positions, which are ALWAYS derived via scripts/positions.sh and never stored. Written ONLY by the tradingsh-log-trade skill. Fields per trade: id (date-NNN), date, ticker, side (buy|sell), qty, price, currency, account, setup (A1-buy|DCA|junior-tranche|breakout|trim|exit-stop|exit-target|seed|other), thesis?, stop?, target?.",
+  "$schema_note": "Append-only trade journal - the single source of truth for positions, which are ALWAYS derived via scripts/positions.sh and never stored. Written ONLY by the tradingsh-log-trade (single trades) and tradingsh-import (bulk/seed) skills. Fields per trade: id (date-NNN), date, ticker, side (buy|sell), qty, price, currency, account, setup (A1-buy|DCA|junior-tranche|breakout|trim|exit-stop|exit-target|seed|other), thesis?, stop?, target?.",
   "trades": [
     {
       "id": "2026-06-11-001",
@@ -330,6 +330,28 @@
       "currency": "CAD",
       "account": "tfsa-sharon",
       "setup": "seed"
+    },
+    {
+      "id": "2026-06-12-001",
+      "date": "2026-06-12",
+      "ticker": "MSI",
+      "side": "buy",
+      "qty": 13.797,
+      "price": 368.87,
+      "currency": "USD",
+      "account": "tfsa",
+      "setup": "import"
+    },
+    {
+      "id": "2026-06-12-002",
+      "date": "2026-06-12",
+      "ticker": "MSI",
+      "side": "buy",
+      "qty": 13.358,
+      "price": 372.14,
+      "currency": "USD",
+      "account": "tfsa",
+      "setup": "import"
     }
   ]
 }
