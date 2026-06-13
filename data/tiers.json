@@ -1,10 +1,10 @@
 {
-  "$schema_note": "Source of truth for tier membership: stocks AND etfs, each with tier1/tier2/cut. Skills read/write this file. Stock admission goes through the tradingsh-tier-admission skill; ETF membership is managed by the fee/overlap criteria in docs/tier-framework.md. When this file changes, the cloud routine prompts must be updated too — ticker universes are baked into the prompt text (see prompts/*.md).",
-  "updated": "2026-06-11",
+  "$schema_note": "Source of truth for tier membership: stocks AND etfs, each with tier1/tier2/cut. Skills read/write this file. Stock admission goes through the tradingsh-triage skill; ETF membership is managed by the fee/overlap criteria in docs/tier-framework.md. When this file changes, the cloud routine prompts must be updated too — ticker universes are baked into the prompt text (see prompts/*.md).",
+  "updated": "2026-06-12",
   "stocks": {
     "tier1": [
       { "ticker": "NVDA", "rank": 1 },
-      { "ticker": "TSM",  "rank": 2, "note": "held via 0050/FLTW ETFs, not as a brokerage single" },
+      { "ticker": "TSM",  "rank": 2, "note": "ADR premium vs 2330.TW (5 shares/ADR, via TWD=X): 1D +17.5%, 7D avg +15.4% as of 2026-06-11 - refreshed in each report's Note" },
       { "ticker": "ASML", "rank": 3 },
       { "ticker": "GOOG", "rank": 4 },
       { "ticker": "CDNS", "rank": 5 },
@@ -22,7 +22,6 @@
       { "ticker": "CRWD", "rank": 17 },
       { "ticker": "CRDO", "rank": 18, "junior": true, "note": "half tranches; air gap to $149" },
       { "ticker": "ALAB", "rank": 19, "junior": true, "note": "half tranches; air gap to $190" },
-      { "ticker": "CIEN", "rank": 20, "probation": true, "note": "buy only on reclaim day, never first touch of A1" },
       { "ticker": "FIX" }
     ],
     "tier2": [
@@ -34,17 +33,23 @@
       { "ticker": "DDOG" },
       { "ticker": "DELL" },
       { "ticker": "RDDT" },
-      { "ticker": "HOOD", "note": "pair with IBKR; size review when SpaceX IPO date set" },
+      { "ticker": "HOOD", "note": "pair with IBKR (3.7% off high at review); size review run 2026-06-11: SpaceX (SPCX) priced $135, lists 2026-06-12 - no journal position to resize; if held externally, no adds into IPO-day froth, reassess after listing settles" },
       { "ticker": "NOW",  "note": "contrarian SaaS; cut if next print cRPO growth < 20%" },
-      { "ticker": "MP",   "note": "cut on US-China rare-earth deal progress or new insider sales" },
       { "ticker": "GEV",  "note": "basing structure; VRT cut redirected here + ETN" },
       { "ticker": "META", "note": "demoted contrarian; restore on 50DMA reclaim or ad-acceleration + flat-capex quarter (~$650 reclaim)" },
-      { "ticker": "MSFT", "note": "demoted contrarian; ~$370 base or capex-discipline print to re-tier; cut on close below 35d base" },
-      { "ticker": "ENTG", "note": "promotion review if <10% off high for 5 sessions" }
+      { "ticker": "MSFT", "note": "demoted contrarian; ~$370 base or capex-discipline print to re-tier; USER OVERRIDE 2026-06-11: NEVER cut (moat/AI investments/leadership) - close below 35d base = breakdown review + no adds only, membership permanent" },
+      { "ticker": "ENTG", "note": "promotion review if <10% off high for 5 sessions" },
+      { "ticker": "LLY",  "note": "off-theme diversifier (pharma/GLP-1), admitted 2026-06-11: PEG 1.53 on +55% revenue growth; half tranches; NO CHASE - 1.6% off 1-yr high at admit; entries $1,054 (7d floor) then $850 (35d base)" },
+      { "ticker": "CIEN", "note": "demoted from Tier 1 2026-06-11 (two closes below pre-crash 35d base 457.79 after Jun 4 earnings miss; reclaim attempt failed same day, closed 444.57 vs 450.78 needed); re-promotion review on close >10% above 10d low with COHR+MRVL green same day; buy only on a confirmed reclaim day" },
+      { "ticker": "VST",  "note": "power gen / AI-datacenter electricity, admitted 2026-06-11 from Pelosi-basket screen: PEG 0.44 on +43% rev, 33% off 1-yr high; half tranches (new name); in DCA band at admit - floor $137.91 (5.7% below), base $132.66, R/R 5.4" },
+      { "ticker": "CCJ",  "note": "uranium w/ multi-year contract book (28M lbs/yr avg over 5 yrs, $2.6B 9-yr India deal; LT price $90/lb 14-yr high; Meta 7.8GW + MSFT 800MW nuclear-for-AI), admitted 2026-06-11 as the fuel leg of the AI-power sleeve w/ VST: half tranches; NO BASE - 90d low $93.83 set this crash week (5.2% below $99.02 close), reduce size until a real floor forms; 37x fwd, PEG 1.9" },
+      { "ticker": "ORCL", "note": "AI-datacenter/OCI w/ massive contracted RPO backlog, admitted 2026-06-12 from QQQ/SPY R/R screen: 16.9x fwd, PEG 0.93, +21% rev, 47% off 1-yr high, R/R 6.8; half tranches; STILL FALLING at admit - no adds until a settling week; floor $175.28, base $160.33" },
+      { "ticker": "ROP",  "note": "vertical-software compounder (recurring/contracted niche monopolies), admitted 2026-06-12: 14x fwd (decade-cheap), PEG 1.37, 69% GM, +11% rev, R/R 9.1, aged low + settling; half tranches; floor $326.53, base $305.96" },
+      { "ticker": "MSI",  "note": "off-theme defensive diversifier (public-safety comms / video security / command-center software; sticky multi-year govt backlog + recurring software), admitted 2026-06-12 via triage: quality compounder (51.5% GM, 17.6% net margin, analyst reco 1.6 / target $506.55 +23%) but NOT cheap (PEG 2.22, fwd P/E 22.3) and slow (rev +7.4%, TTM EPS growth -13.8% - watch Jul 30 print); half tranches (new name); NO CHASE - 16.2% off 1-yr high $492.22, R/R 2.58, real base; entries $401.62 (7d floor) then $381.25 (35d base); earnings 2026-07-30" }
     ],
     "cut": [
       "CRM", "NFLX", "UI", "SOFI", "SNOW", "NET", "HPE", "MXL", "LITE",
-      "VRT", "FCX", "2454", "K"
+      "VRT", "FCX", "2454", "K", "MP"
     ]
   },
   "etfs": {
